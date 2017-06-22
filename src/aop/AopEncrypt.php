@@ -1,4 +1,6 @@
 <?php
+class AopEncrypt {
+
 /**
  *   加密工具类
  *
@@ -12,11 +14,11 @@
  * @param string $str
  * @return string
  */
- function encrypt($str,$screct_key){
+ static function encrypt($str,$screct_key){
 	//AES, 128 模式加密数据 CBC
 	$screct_key = base64_decode($screct_key);
 	$str = trim($str);
-	$str = addPKCS7Padding($str);
+	$str = self::addPKCS7Padding($str);
 	$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128,MCRYPT_MODE_CBC),1);
 	$encrypt_str =  mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $screct_key, $str, MCRYPT_MODE_CBC);
 	return base64_encode($encrypt_str);
@@ -27,7 +29,7 @@
  * @param string $str
  * @return string
  */
- function decrypt($str,$screct_key){
+static function decrypt($str,$screct_key){
 	//AES, 128 模式加密数据 CBC
 	$str = base64_decode($str);
 	$screct_key = base64_decode($screct_key);
@@ -45,7 +47,7 @@
  * @param string $source
  * @return string
  */
-function addPKCS7Padding($source){
+static function addPKCS7Padding($source){
 	$source = trim($source);
 	$block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
 
@@ -61,11 +63,13 @@ function addPKCS7Padding($source){
  * @param string $source
  * @return string
  */
-function stripPKSC7Padding($source){
+static function stripPKSC7Padding($source){
 	$source = trim($source);
 	$char = substr($source, -1);
 	$num = ord($char);
 	if($num==62)return $source;
 	$source = substr($source,0,-$num);
 	return $source;
+}
+
 }
