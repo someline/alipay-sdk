@@ -1,10 +1,18 @@
-# Someline Starter Framework (Kernel)
+# Alipay SDK (支付宝SDK)
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-The [Someline Starter](https://starter.someline.com/) Framework.
+所有SDK源文件取自 [支付宝官网](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.8ar39v&treeId=54&articleId=103419&docType=1)，原版未改动。
+
+最后更新版本：20170615110533
+
+## 使用
+
+```$bash
+composer require someline/alipay-sdk
+```
 
 ## Change log
 
