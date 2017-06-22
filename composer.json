@@ -1,0 +1,46 @@
+{
+  "name": "someline/alipay-sdk",
+  "type": "sdk",
+  "description": "The Alipay SDK",
+  "keywords": [
+    "someline",
+    "alipay-sdk"
+  ],
+  "homepage": "https://github.com/someline/alipay-sdk",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Libern Lin",
+      "email": "libernlin@gmail.com",
+      "homepage": "https://www.someline.com/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "files": [
+      "src/AopSdk.php"
+    ],
+    "psr-4": {
+      "AlipaySDK\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "format": "phpcbf --standard=psr2 src/"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "minimum-stability": "dev"
+}
